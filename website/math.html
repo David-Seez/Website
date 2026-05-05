@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematics</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Mathematics</div>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+</header>
+
+<!-- INTRO -->
+<section class="intro">
+    <p>
+        I am a Phd in Mathematics and Tübingen and currently work in in the interplay of differential geometrie, dynamical systems and algebraic topology. However, I did some work out of curiosity that I post here. 
+    </p>
+</section>
+
+<!-- PROJECT 1 -->
+
+<section class="project-card">
+
+    <!-- LEFT: IMAGE -->
+    <div class="card-media">
+        <img src="images/math/figureOfEight.jpg" alt="Figure of Eight">
+    </div>
+
+    <!-- RIGHT: CONTENT -->
+    <div class="card-content">
+
+        <h2>Master Thesis</h2>
+
+        <p>
+            The analytically and geometrically calculated Morse homology is isomorphic to singular homology.
+        </p>
+
+        <a href="pdfs/Masterarbeit.pdf" target="_blank" class="download">
+            Download PDF →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- PROJECT 1 -->
+
+<section class="project-card">
+
+    <!-- LEFT: IMAGE -->
+    <div class="card-media">
+        <img src="images/math/AllgemeinerAufbau.jpg" alt="Figure of Eight">
+    </div>
+
+    <!-- RIGHT: CONTENT -->
+    <div class="card-content">
+
+        <h2>Hangneigung</h2>
+
+        <p>
+            In the mountains one estimates the danger of avenanges by estimation the slope. This gives some inside into that. It is written in german
+        </p>
+
+        <a href="pdfs/Hangneigung.pdf" target="_blank" class="download">
+            Download PDF →
+        </a>
+
+    </div>
+
+</section>
+
+<!-- PROJECT 2 -->
+
+<section class="project-card">
+
+    <!-- LEFT: IMAGE -->
+    <div class="card-media">
+        <img id="sequenceImage" src="images/math/27lines-0.png" alt="27 lines animation">
+    </div>
+
+    <!-- RIGHT: CONTENT -->
+    <div class="card-content">
+
+        <h2>Bachelor Thesis</h2>
+
+        <p>
+            The shadow of a cubic to finde a smooth quartic. 
+        </p>
+
+        <a href="pdfs/Bachelorarbeit.pdf" target="_blank" class="download">
+            Download PDF →
+        </a>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+const img = document.getElementById("sequenceImage");
+
+const totalFrames = 43;
+let current = 0;
+let interval = null;
+
+// function to show frame
+function setFrame(i) {
+    img.src = `images/math/27lines-${i}.png`;
+}
+
+// start animation
+function startAnimation() {
+    if (interval) return; // prevent multiple loops
+
+    interval = setInterval(() => {
+        current = (current + 1) % (totalFrames + 1);
+        setFrame(current);
+    }, 80); // speed
+}
+
+// stop animation and reset
+function stopAnimation() {
+    clearInterval(interval);
+    interval = null;
+
+    current = 0;
+    setFrame(0); // back to first image
+}
+
+// hover events
+img.addEventListener("mouseenter", startAnimation);
+img.addEventListener("mouseleave", stopAnimation);
+
+// initial state
+setFrame(0);
+</script>
+
+</body>
+</html>
